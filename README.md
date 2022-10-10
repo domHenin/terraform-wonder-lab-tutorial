@@ -2,7 +2,7 @@
 
 ## Overview
 
-Found new infrastructure to build. this will allow me to get some hands on experience with different AWS services using Terraform. Following this [Guide](https://www.itwonderlab.com/en/terraform-ansible-aws-howto/)  and provided access this [GitHub Repo]() will give me a better understanding using different AWS Services along with Terraform Infrastructure.
+Found new infrastructure to build. this will allow me to get some hands on experience with different AWS services using Terraform. Following this [Guide](https://www.itwonderlab.com/en/terraform-ansible-aws-howto/)  and provided access to this [GitHub Repo]() will give me a better understanding using different AWS Services along with Terraform Infrastructure.
 
 -----
 
@@ -45,9 +45,10 @@ terraform fmt
 terraform validate
 terraform plan
 terraform init
+terraform apply
 ```
 
-## Tearing Down the Terraformed Cluster
+## Tearing Down the Terraformed Infrastructure
 
 Run the following to verify that ***terraform*** will only impact the expected
 nodes and then tear down the cluster.
