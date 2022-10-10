@@ -1,4 +1,8 @@
 #-----------------------------------------
+# ROUTING
+#-----------------------------------------
+
+#-----------------------------------------
 # MAIN Route Table (Default for all SUBNETS)
 # Used for public zones / subnets
 # It is the default route table if no other
@@ -6,17 +10,17 @@
 #-----------------------------------------
 
 module "aws_main_route_table_public" {
-  source = "./modules/aws/route/table"
+  source = "./modules/aws/network/route/table"
   vpc_id = module.aws_network_vpc.id
   name   = var.aws_main_route_table_public // verifty: var.aws_main_route_table_public -> this set on guide   
 }
 
 #Add an Internet GW to the VPC routing main table
 
-module "aws_internet_gateway" {
+module "aws_internet_rotue" {
   source           = "./modules/aws/network/internet_gateway"
   route_table_id   = module.aws_main_route_table_public.id
-  gateway_id       = module.aws_internet_gateway.id
+  gateway_id       = module.aws_internet_gw.id
   destination_cidr = var.aws_internet_route_module
   name             = var.aws_internet_route_name_module
 
@@ -49,4 +53,18 @@ module "aws_private_zone_zb" {
   source = "./modules/aws/network/route/table"
   vpc_id = module.aws_network_vpc.id
   name   = var.aws_private_route_table_zb_module
+}
+
+
+# Associate private networks in zone A to private route table
+resource "aws_route_table_association" "route_sn_za_pro_pri_34" {
+  subnet_id = module.aws__sn_zb_pro_pri_38.vpc_id
+  aws_route_table_association = module.aws_private_route_table_zb_module.id  
+}
+
+# Associate private networks in zone B to private route table
+resource "aws_route_table_association" "aws_sn_zb_pro_pri_38" {
+  subnet_id = module.aws_sn_zb_pro_pri_38.id
+  aws_route_table_association = module.aws_private_route_table_zb_module.id
+  
 }
