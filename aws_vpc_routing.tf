@@ -65,6 +65,11 @@ resource "aws_route_table_association" "route_sn_za_pro_pri_34" {
 # Associate private networks in zone B to private route table
 resource "aws_route_table_association" "aws_sn_zb_pro_pri_38" {
   subnet_id = module.aws_sn_zb_pro_pri_38.id
-  aws_route_table_association = module.aws_private_route_table_zb_module.id
-  
+  aws_route_table_association = module.aws_private_route_table_zb_module.id  
 }
+
+resource "aws_route_table_association" "aws_sn_zb_pro_pri_38" {
+  subnet_id = module.aws_sn_zb_pro_pri_38.id
+  route_table_id = module.aws_private_route_table_zb_module.id  
+}
+

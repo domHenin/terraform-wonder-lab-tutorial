@@ -2,7 +2,7 @@
 
 ## Overview
 
-Found new infrastructure to build. this will allow me to get some hands on experience with different AWS services using Terraform. Following this [Guide](https://www.itwonderlab.com/en/terraform-ansible-aws-howto/)  and provided access to this [GitHub Repo]() will give me a better understanding using different AWS Services along with Terraform Infrastructure.
+Found new infrastructure to build. this will allow me to get some hands on experience with different AWS services using Terraform. Following this [Guide](https://www.itwonderlab.com/en/terraform-ansible-aws-howto/)  and provided access to this [GitHub Repo](https://github.com/itwonderlab/terraform-aws-ec2-rds-basic-free) will give me a better understanding using different AWS Services along with Terraform Infrastructure.
 
 -----
 
@@ -109,7 +109,17 @@ Main table contains a local entry for the routing inside the VPC and a route to 
 
 All the VPC subnets that are not assigned a specific routing table use the main routing table, therefore public subnets are not assigned to any specific routing table.
 
-For private subnets, two routing tables are created on lines 49 and 56, then assigned to the corresponding subnets in lines 63 and 69.
+For private subnets, two routing tables are created on lines 49 and 56, then assigned to the corresponding subnets in lines 63 and 69. 
+
+<!-- change the line referencing to personal line number -->
+
+
+## RDS Subnet Group
+
+Another type of Subnet is the one used for AWS RDS. In the example, we are using a MariaDB database as a service.
+
+To configure the Database, an RDS Subnet Group has to be created, the RDS Subnet Group is an aggregation of VPC Subnets, and the same principles of resource distribution, high availability, and isolation of resources applies. See RDS Subnet Group for a description.
+
 
 
 
